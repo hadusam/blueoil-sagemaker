@@ -43,9 +43,7 @@ channel_name = 'training'
 training_path = os.path.join(input_path, channel_name)
 
 # default params
-training_script = '/home/blueoil/blueoil/blueoil_train.py'
-convert_script = '/home/blueoil/blueoil/blueoil_convert.py'
-
+blueoil_cmd = '/home/blueoil/blueoil/cmd/main.py'
 
 # Execute your training algorithm.
 def _run(cmd):
@@ -115,13 +113,13 @@ if __name__ == '__main__':
 
         python_executable = sys.executable
         cmd_args = _hyperparameters_to_cmd_args(training_params)
-        train_cmd = [python_executable, training_script] + cmd_args
+        train_cmd = [python_executable, blueoil_cmd, 'train'] + cmd_args
         
         print(train_cmd)
         _run(train_cmd)
         print('Training complete.')
 
-        convert_cmd = [python_executable, convert_script, '--experiment_id', training_params['experiment_id']]
+        convert_cmd = [python_executable, blueoil_cmd, 'convert', '--experiment_id', training_params['experiment_id']]
         
         print(convert_cmd)
         _run(convert_cmd)
