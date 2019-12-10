@@ -9,3 +9,4 @@ ENV OUTPUT_DIR="/opt/ml/model"
 COPY script /opt/ml/code
 WORKDIR /opt/ml/code
 RUN chmod -R +x /opt/ml/code
+ENTRYPOINT [ "" ]
