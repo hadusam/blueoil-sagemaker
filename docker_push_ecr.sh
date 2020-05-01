@@ -1,5 +1,13 @@
+#!/bin/bash
+
 # The name of our algorithm
 algorithm_name=${1:-blueoil-sagemaker}
+
+# The base image of docker image
+base_image=${2}
+if [ -n ${base_image} ]; then
+    build_arg="--build-arg base_image=${base_image}"
+fi
 
 account=$(aws sts get-caller-identity --query Account --output text)
 
@@ -24,7 +32,7 @@ $(aws ecr get-login --region ${region} --no-include-email)
 # Build the docker image locally with the image name and then push it to ECR
 # with the full name.
 
-docker build  -t ${algorithm_name} .
+docker build  -t ${algorithm_name} ${build_arg} .
 docker tag ${algorithm_name} ${fullname}
 
 docker push ${fullname}
