@@ -41,7 +41,7 @@ IS_DEBUG = False
 NETWORK_CLASS = LmnetV1Quantize
 
 # TODO(wakisaka): should be hidden. generate dataset class on the fly.
-DATASET_CLASS = type('DATASET_CLASS', (ImageFolderBase,), {'extend_dir': '/opt/ml/input/dataset/cifar/train', 'validation_extend_dir': '/opt/ml/input/dataset/cifar/test'})
+DATASET_CLASS = type('DATASET_CLASS', (ImageFolderBase,), {'extend_dir': '/opt/ml/input/data/dataset/cifar/train', 'validation_extend_dir': '/opt/ml/input/data/dataset/cifar/test'})
 
 IMAGE_SIZE = [32, 32]
 BATCH_SIZE = 64
@@ -51,9 +51,9 @@ CLASSES = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'hors
 
 MAX_EPOCHS = 100
 SAVE_CHECKPOINT_STEPS = 1000
-KEEP_CHECKPOINT_MAX = 5
+KEEP_CHECKPOINT_MAX = 1
 TEST_STEPS = 1000
-SUMMARISE_STEPS = 100
+SUMMARISE_STEPS = 10000
 
 
 # pretrain

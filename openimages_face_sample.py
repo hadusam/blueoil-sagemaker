@@ -47,7 +47,7 @@ IS_DEBUG = False
 NETWORK_CLASS = LMFYoloQuantize
 
 # TODO(wakisaka): should be hidden. generate dataset class on the fly.
-DATASET_CLASS = type('DATASET_CLASS', (OpenImagesV4BoundingBoxBase,), {'extend_dir': '/opt/ml/input/dataset/openimages_face/', 'validation_extend_dir': '/opt/ml/input/dataset/openimages_face/'})
+DATASET_CLASS = type('DATASET_CLASS', (OpenImagesV4BoundingBoxBase,), {'extend_dir': '/opt/ml/input/data/dataset/openimages_face/', 'validation_extend_dir': '/opt/ml/input/data/dataset/openimages_face/'})
 
 IMAGE_SIZE = [224, 224]
 BATCH_SIZE = 16
@@ -57,9 +57,9 @@ CLASSES = ['Humanface']
 
 MAX_EPOCHS = 400
 SAVE_CHECKPOINT_STEPS = 1000
-KEEP_CHECKPOINT_MAX = 5
+KEEP_CHECKPOINT_MAX = 1
 TEST_STEPS = 1000
-SUMMARISE_STEPS = 100
+SUMMARISE_STEPS = 10000
 
 
 # pretrain
